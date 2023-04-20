@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Booking Agency </title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <diV class="logo">
+            <img src="{% static 'images/logo.png' %}" alt="#">
+        </diV>
+        <div class="navitems">
+        <ul>
+            <li>
+                <a href="{% url 'home' %}">Home</a>
+            </li>
+            {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url 'addreview' %}">Add Review</a>
+                </li>
+                <li>
+                    <a href="{% url 'logout' %}">Logout</a>
+                </li>
+            {% else %}
+            <li>
+                <a href="{% url 'register' %}">Register</a>
+            </li>
+            <li>
+                <a href="{% url 'login' %}">Login</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+    </nav>
+    <div class="container">
+        <img src="{% static 'images/mountain2.jpg' %}" alt="">
+    </div>
+    {% block content %}
+    {% endblock content %}
+</body> 
+</html>

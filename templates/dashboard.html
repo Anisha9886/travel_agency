@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="specialplaces">
+        <img src="{% static 'images/specialplaces.png' %}" alt="">
+        <div class="text4">
+            SPECIAL PLACES
+        </div>
+    </div>
+        <div class="cont">
+            {% for i in d %}
+            {% if i.visible %}
+            <div class="row">
+                <div class="card">
+                    <a href="{% url 'booktour' i.id %}">
+                    <img src="{{i.img.url}}" alt="#"></a>
+                    <div class="card-content">
+                        <h3 class="card-header">{{i.title}}</h3>
+                        <p class="card-text">{{i.desc}}</p>
+                        
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="cont1">
+            {% for i in e %}
+            {% if i.visible %}
+            <div class="row1">
+                <div class="card1">
+                    <a href="{% url 'booktourone' i.id %}">
+                    <img src="{{i.img.url}}" alt="#"></a>
+                    <div class="card-content1">
+                        <h3 class="card-header1">{{i.title}}</h3>
+                        <p class="card-text1">{{i.desc}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    
+<section class="banner">
+    <div class="banner-cont">
+        <div class="banner-text">
+            {% if user.is_authenticated %}
+            <h1>Welcome,{{user.username}}</h1>
+            <h2>Enjoy Beauty Of Our Planet With Us</h2>
+            <a href="{% url 'dashboard' %}">Discover More</a>
+            {% else %}
+            <h1>Welcome</h1>
+            <h2>Enjoy Beauty Of Our Planet With Us</h2>
+            <a href="{% url 'login' %}">Discover More</a>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

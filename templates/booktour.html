@@ -1,0 +1,36 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<html>
+    <head>
+        <title>
+            Book Tour
+        </title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <div class="booktour1">
+            <h2 class="booktour-text">Register</h2>
+            <img src="{% static 'images/booking.jpg' %}" alt="">
+            <form method="POST" action="application"> 
+                {% csrf_token %}               
+                <input type="text" name="firstname" placeholder="Enter your first name" required>
+                <br>
+                <input type="text" name="lastname" placeholder="Enter your last name" required>
+                <br>
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <br>
+                <input type="text" name="address" placeholder="Enter your address" required>
+                <br>
+                <input type="text" name="place" value="{{place.title}}">
+                <br>
+                <input type="date" name="date" placeholder="Enter your travelling date" required>
+                <br>
+                <input type="number" name="totaladults" placeholder="Enter number  of adults" required>
+                <br>
+                <button>BOOK
+                </button>
+            </form>
+        </div>
+    </body>
+</html>
+

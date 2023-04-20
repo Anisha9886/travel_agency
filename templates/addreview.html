@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container1 glass">
+    <h1 class="review">REVIEW</h1>
+    <div class="text2">
+        <form method="POST">
+            <label>Passenger Name</label>
+            <input type="text" name="name" placeholder="Enter your name">
+            <label>Review</label>
+            <input type="text" name="review" placeholder="Enter your review">
+            <button><a href="{% url 'home' %}">Submit</a></button>
+        </form>
+    </div>    
+</div>
+{% endblock content %}
